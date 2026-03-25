@@ -4,7 +4,10 @@ pipeline{
     parameters {
         choice(name : 'ENV', choices: ['dev', 'prod'], description : 'Select environment')
     }
-    
+
+    environment {
+        AWS_DEFAULT_REGION = 'us-east-1'
+    }
     stages {
         stage('Terraform init') {
             steps{
