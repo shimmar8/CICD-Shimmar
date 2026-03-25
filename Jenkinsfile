@@ -15,13 +15,11 @@ pipeline{
                   git branch: 'main', url: 'https://github.com/shimmar8/CICD-Shimmar.git'
               }
     }
-    stages {
         stage('Terraform init') {
             steps{
                 sh 'terraform init'
             }
         }
-    }
         stage('Terraform plan') {
             steps {
                 sh 'terraform plan -var='environment=${params.ENV}' -out=tfplan'
