@@ -8,6 +8,12 @@ pipeline{
     environment {
         AWS_DEFAULT_REGION = 'us-east-1'
     }
+    stages{
+        stage('Checkout") {
+              steps {
+                  git branch: 'main', url: 'https://github.com/shimmar8/CICD-Shimmar.git'
+              }
+    }
     stages {
         stage('Terraform init') {
             steps{
