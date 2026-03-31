@@ -30,7 +30,7 @@ pipeline {
 
             steps {
 
-                sh 'terraform init'
+                bat 'terraform init'
 
             }
 
@@ -40,7 +40,7 @@ pipeline {
 
             steps {
 
-                sh "terraform plan -var-file=${params.ENV}.tfvars -out=tfplan"
+                bat "terraform plan -var-file=${params.ENV}.tfvars"
 
             }
 
@@ -50,7 +50,7 @@ pipeline {
 
             steps {
 
-                sh 'terraform apply -auto-approve tfplan'
+                bat "terraform apply -auto-approve -var-file=${params.ENV}.tfvars"
 
             }
 
